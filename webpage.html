@@ -1,0 +1,78 @@
+<!<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login-page.css">
+  <script defer src="login-page.js"></script>
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="login-header">Login</h1>
+    
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+    
+    <form id="login-form">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <input type="submit" value="Login" id="login-form-submit">
+    </form>
+  
+  </main>
+</body>
+
+</html> 
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Website Design</title>
+    <style>
+        /* CSS for styling the page */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        button {
+            padding: 30px 50px;
+            font-size: 26spx;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <p>Click the button to change the text color:</p>
+    
+    <button id="changeColorButton">Change Text Color</button>
+    
+    <p id="content">This is some text.</p>
+
+    <script>
+        // JavaScript for interactivity
+        const button = document.getElementById('changeColorButton');
+        const content = document.getElementById('content');
+        const colors = ['red', 'blue', 'green', 'purple', 'orange','pink'];
+        let currentColorIndex = 0;
+
+        button.addEventListener('click', function() {
+            // Change the text color
+            content.style.color = colors[currentColorIndex];
+            
+            // Cycle through the color array
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+        });
+    </script>
+</body>
+</html> -->
+
+
+

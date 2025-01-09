@@ -1,0 +1,48 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<body>
+<h2>HTML Image</h2>
+<img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
+<img src="img_chania.jpg" alt="Flowers in Chaina" width="460" height="345">
+</body>
+</head>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Header Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <h1>My Sticky Header</h1>
+    </header>
+    <div class="content">
+        <!-- Your page content goes here -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+.sticky-header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Style for the content below the header */
+.content {
+    margin-top: 80px; /* Make space for the fixed header */
+    padding: 20px;
+    /* Add your content styles here */
+}
