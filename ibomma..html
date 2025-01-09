@@ -1,0 +1,224 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Pizza Webpage</title>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .pizza-item {
+            display: inline-block;
+            margin: 10px;
+            width: 30%;
+        }
+
+        .pizza-item img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form label, form input, form textarea, form button {
+            width: 80%;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .pizza-item {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pizza-item {
+                width: 90%;
+            }
+
+            form label, form input, form textarea, form button {
+                width: 100%;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Delicious Pizza</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to Delicious Pizza</h2>
+        <p>We serve the best pizza in town. Come and taste the difference!</p>
+    </section>
+
+    <section id="menu">
+        <h2>Our Menu</h2>
+        <div class="pizza-item">
+            <img src="https://img.freepik.com/free-photo/round-pepperoni-pizza-table_140725-892.jpg?t=st=1718426580~exp=1718430180~hmac=058761d69dd565d1f7891e3fd4770437d1509c89c22dd8e747e76c0acc6d9229&w=740" alt="Margherita Pizza" onclick="openModal('Margherita Pizza', 'Classic cheese and tomato pizza.')">
+            <h3> Pizza</h3>
+            <p>periparal</p>
+        </div>
+        <div class="pizza-item">
+            <img src="https://img.freepik.com/free-photo/slice-crispy-pizza-with-meat-cheese_140725-6974.jpg?t=st=1718429232~exp=1718432832~hmac=4c6cefa681c2a5d3cdecc1c5460058c1e8d26a4b4374fa84769d4705264fad12&w=740" alt="Pepperoni Pizza" onclick="openModal('Pepperoni Pizza', 'Spicy pepperoni with mozzarella cheese.')">
+            <h3>Pepperoni Pizza</h3>
+            <p>Spicy pepperoni with mozzarella cheese.</p>
+        </div>
+        <div class="pizza-item">
+            <img src="https://img.freepik.com/free-photo/top-view-pizza-with-knife-mint_23-2148357161.jpg?t=st=1718429419~exp=1718433019~hmac=383e942c60bcd9faac7ccf51ca9eb337313644f913a110db63254d6da01cb396&w=740" alt="Veggie Pizza" onclick="openModal('Veggie Pizza', 'A mix of fresh vegetables and cheese.')">
+            <h3>Veggie Pizza</h3>
+            <p>A mix of fresh vegetables and cheese.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+            <button type="submit">Order</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Delicious Pizza</p>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, description) {
+            document.getElementById("modal-title").innerText = title;
+            document.getElementById("modal-description").innerText = description;
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
